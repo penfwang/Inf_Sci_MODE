@@ -103,11 +103,11 @@ def fit_train_group(x1, train_data, space):
 
 
 def kNNClassify(newInput, dataSet, labels, k):
-    numSamples = dataSet.shape[0]   # shape[0]表示行数
-    diff = np.tile(newInput, (numSamples, 1)) - dataSet  # 按元素求差值
-    squaredDiff = diff ** 2  # 将差值平方
-    squaredDist = squaredDiff.sum(axis = 1)   # 按行累加
-    distance = squaredDist ** 0.5  # 将差值平方和求开方，即得距离
+    numSamples = dataSet.shape[0]   
+    diff = np.tile(newInput, (numSamples, 1)) - dataSet  
+    squaredDiff = diff ** 2  
+    squaredDist = squaredDiff.sum(axis = 1)   
+    distance = squaredDist ** 0.5 
     sortedDistIndices = distance.argsort()
     classCount = {}
     for i in range(k):
